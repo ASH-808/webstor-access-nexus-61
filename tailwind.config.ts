@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -103,13 +102,58 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'flame-flicker': {
+					'0%, 100%': {
+						transform: 'scale(1) rotate(0deg)',
+						opacity: '0.6'
+					},
+					'25%': {
+						transform: 'scale(1.1) rotate(2deg)',
+						opacity: '0.8'
+					},
+					'50%': {
+						transform: 'scale(0.9) rotate(-1deg)',
+						opacity: '0.7'
+					},
+					'75%': {
+						transform: 'scale(1.05) rotate(1deg)',
+						opacity: '0.9'
+					}
+				},
+				'flame-flicker-delay': {
+					'0%, 100%': {
+						transform: 'scale(0.95) rotate(0deg)',
+						opacity: '0.7'
+					},
+					'33%': {
+						transform: 'scale(1.15) rotate(-2deg)',
+						opacity: '0.9'
+					},
+					'66%': {
+						transform: 'scale(0.85) rotate(1deg)',
+						opacity: '0.6'
+					}
+				},
+				'flame-flicker-slow': {
+					'0%, 100%': {
+						transform: 'scale(1) rotate(0deg)',
+						opacity: '0.5'
+					},
+					'50%': {
+						transform: 'scale(1.2) rotate(3deg)',
+						opacity: '0.8'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.8s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'flame-flicker': 'flame-flicker 2s ease-in-out infinite',
+				'flame-flicker-delay': 'flame-flicker-delay 2.5s ease-in-out infinite',
+				'flame-flicker-slow': 'flame-flicker-slow 3s ease-in-out infinite'
 			}
 		}
 	},

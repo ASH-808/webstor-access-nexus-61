@@ -46,6 +46,12 @@ const Navigation = () => {
               HOME
             </button>
             <button 
+              onClick={() => scrollToSection('dashboard')}
+              className="text-white/80 hover:text-white transition-colors duration-300 tracking-wide"
+            >
+              DASHBOARD
+            </button>
+            <button 
               onClick={() => scrollToSection('products')}
               className="text-white/80 hover:text-white transition-colors duration-300 tracking-wide"
             >
@@ -83,6 +89,12 @@ const Navigation = () => {
                 className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors"
               >
                 HOME
+              </button>
+              <button 
+                onClick={() => scrollToSection('dashboard')}
+                className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors"
+              >
+                DASHBOARD
               </button>
               <button 
                 onClick={() => scrollToSection('products')}
