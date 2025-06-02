@@ -1,23 +1,17 @@
-
 import { useEffect, useState } from 'react';
 import { BarChart3, Users, Shield, Activity, TrendingUp, Clock } from 'lucide-react';
-
 const DashboardSection = () => {
   const [scrollY, setScrollY] = useState(0);
-
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  return (
-    <section id="dashboard" className="relative min-h-screen bg-black py-20 overflow-hidden">
+  return <section id="dashboard" className="relative min-h-screen bg-black py-20 overflow-hidden">
       {/* Parallax Background Elements */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-      >
+      <div className="absolute inset-0 opacity-10" style={{
+      transform: `translateY(${scrollY * 0.1}px)`
+    }}>
         <div className="absolute top-20 right-10 w-32 h-32 border border-blue-400/20 rotate-45 animate-pulse"></div>
         <div className="absolute bottom-40 left-20 w-24 h-24 border border-cyan-400/30 rounded-full"></div>
         <div className="absolute top-1/3 left-10 w-16 h-16 bg-blue-500/5 rotate-12"></div>
@@ -49,11 +43,11 @@ const DashboardSection = () => {
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-wider leading-tight mb-6">
             INTELLIGENT
-            <span className="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-violet-400">
               DASHBOARD
             </span>
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto mb-8"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto mb-8 bg-violet-500"></div>
           <p className="text-xl md:text-2xl text-white/80 font-light max-w-3xl mx-auto">
             Experience real-time monitoring and analytics with our cutting-edge dashboard interface
           </p>
@@ -61,10 +55,9 @@ const DashboardSection = () => {
 
         {/* Dashboard Mockup */}
         <div className="relative">
-          <div 
-            className="relative z-20 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 transform hover:scale-105 transition-all duration-500 shadow-2xl"
-            style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-          >
+          <div className="relative z-20 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 transform hover:scale-105 transition-all duration-500 shadow-2xl" style={{
+          transform: `translateY(${scrollY * 0.05}px)`
+        }}>
             {/* Dashboard Header */}
             <div className="flex justify-between items-center mb-8 pb-6 border-b border-white/20">
               <h3 className="text-2xl font-bold text-white">Access Control Dashboard</h3>
@@ -122,13 +115,9 @@ const DashboardSection = () => {
                   <BarChart3 className="text-blue-400" size={20} />
                 </div>
                 <div className="h-32 flex items-end space-x-2">
-                  {[65, 80, 45, 90, 75, 85, 70].map((height, index) => (
-                    <div
-                      key={index}
-                      className="bg-gradient-to-t from-blue-500 to-cyan-400 rounded-t flex-1 animate-pulse"
-                      style={{ height: `${height}%` }}
-                    ></div>
-                  ))}
+                  {[65, 80, 45, 90, 75, 85, 70].map((height, index) => <div key={index} style={{
+                  height: `${height}%`
+                }} className="bg-gradient-to-t from-blue-500 to-cyan-400 rounded-t flex-1 animate-pulse bg-purple-400"></div>)}
                 </div>
               </div>
 
@@ -180,8 +169,6 @@ const DashboardSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default DashboardSection;
