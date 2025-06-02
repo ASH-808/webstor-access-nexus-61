@@ -27,9 +27,14 @@ const Navigation = () => {
       isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="font-bold text-xl tracking-wider text-white">
-            WEBSTORLABS
+        <div className="flex justify-between items-center h-20">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">W</span>
+            </div>
+            <div className="font-bold text-xl tracking-wider text-white">
+              WEBSTORLABS
+            </div>
           </div>
           
           {/* Desktop Navigation */}
