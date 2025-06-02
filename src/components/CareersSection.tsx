@@ -1,42 +1,78 @@
+
 import { useState, useEffect } from 'react';
+
 const CareersSection = () => {
   const [selectedJob, setSelectedJob] = useState<number | null>(null);
   const [scrollY, setScrollY] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  const jobs = [{
-    title: "Embedded Developer",
-    location: "Remote / On-site",
-    type: "Full-time",
-    description: "Design and develop embedded systems for NFC access control hardware. Work with microcontrollers, real-time operating systems, and low-level programming.",
-    requirements: ["3+ years experience in embedded C/C++ development", "Experience with ARM microcontrollers and RTOS", "Knowledge of communication protocols (SPI, I2C, UART)", "Familiarity with NFC/RFID technologies preferred", "Strong debugging and testing skills"]
-  }, {
-    title: "System Designer",
-    location: "Remote / On-site",
-    type: "Full-time",
-    description: "Architect scalable cloud infrastructure and design system integration for access control solutions. Lead technical decision-making and system optimization.",
-    requirements: ["5+ years in system architecture and cloud design", "Experience with microservices and distributed systems", "Proficiency in AWS/Azure cloud platforms", "Knowledge of security protocols and encryption", "Experience with real-time data processing"]
-  }, {
-    title: "Project Manager",
-    location: "Hybrid",
-    type: "Full-time",
-    description: "Lead cross-functional teams to deliver complex access control projects. Coordinate between hardware, software, and client implementation teams.",
-    requirements: ["PMP or equivalent project management certification", "3+ years managing technical projects", "Experience in IoT or hardware product development", "Strong stakeholder management skills", "Agile/Scrum methodology expertise"]
-  }, {
-    title: "Cybersecurity & QA Specialist",
-    location: "Remote / On-site",
-    type: "Full-time",
-    description: "Ensure the security and quality of access control systems. Conduct penetration testing, security audits, and comprehensive QA processes.",
-    requirements: ["Cybersecurity certification (CISSP, CEH, or equivalent)", "Experience with penetration testing tools", "Knowledge of IoT security best practices", "Automated testing framework experience", "Understanding of compliance standards (ISO 27001, etc.)"]
-  }];
-  return <section id="careers" className="relative min-h-screen bg-black py-20 overflow-hidden">
+
+  const jobs = [
+    {
+      title: "Embedded Developer",
+      location: "Remote / On-site",
+      type: "Full-time",
+      description: "Design and develop embedded systems for NFC access control hardware. Work with microcontrollers, real-time operating systems, and low-level programming.",
+      requirements: [
+        "3+ years experience in embedded C/C++ development",
+        "Experience with ARM microcontrollers and RTOS",
+        "Knowledge of communication protocols (SPI, I2C, UART)",
+        "Familiarity with NFC/RFID technologies preferred",
+        "Strong debugging and testing skills"
+      ]
+    },
+    {
+      title: "System Designer",
+      location: "Remote / On-site",
+      type: "Full-time",
+      description: "Architect scalable cloud infrastructure and design system integration for access control solutions. Lead technical decision-making and system optimization.",
+      requirements: [
+        "5+ years in system architecture and cloud design",
+        "Experience with microservices and distributed systems",
+        "Proficiency in AWS/Azure cloud platforms",
+        "Knowledge of security protocols and encryption",
+        "Experience with real-time data processing"
+      ]
+    },
+    {
+      title: "Project Manager",
+      location: "Hybrid",
+      type: "Full-time",
+      description: "Lead cross-functional teams to deliver complex access control projects. Coordinate between hardware, software, and client implementation teams.",
+      requirements: [
+        "PMP or equivalent project management certification",
+        "3+ years managing technical projects",
+        "Experience in IoT or hardware product development",
+        "Strong stakeholder management skills",
+        "Agile/Scrum methodology expertise"
+      ]
+    },
+    {
+      title: "Cybersecurity & QA Specialist",
+      location: "Remote / On-site",
+      type: "Full-time",
+      description: "Ensure the security and quality of access control systems. Conduct penetration testing, security audits, and comprehensive QA processes.",
+      requirements: [
+        "Cybersecurity certification (CISSP, CEH, or equivalent)",
+        "Experience with penetration testing tools",
+        "Knowledge of IoT security best practices",
+        "Automated testing framework experience",
+        "Understanding of compliance standards (ISO 27001, etc.)"
+      ]
+    }
+  ];
+
+  return (
+    <section id="careers" className="relative min-h-screen bg-black py-20 overflow-hidden">
       {/* Parallax Background Elements */}
-      <div className="absolute inset-0 opacity-5" style={{
-      transform: `translateY(${scrollY * 0.3}px)`
-    }}>
+      <div 
+        className="absolute inset-0 opacity-5"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+      >
         <div className="absolute top-20 left-10 w-32 h-32 border border-white/20 rotate-45 animate-pulse"></div>
         <div className="absolute top-40 right-20 w-24 h-24 border border-blue-400/30 rounded-full animate-ping"></div>
         <div className="absolute bottom-32 left-1/4 w-16 h-16 bg-purple-500/10 rotate-12"></div>
@@ -64,12 +100,16 @@ const CareersSection = () => {
 
         {/* Job Listings */}
         <div className="space-y-4">
-          {jobs.map((job, index) => <div key={index} className="border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 rounded-lg overflow-hidden">
+          {jobs.map((job, index) => (
+            <div key={index} className="border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 rounded-lg overflow-hidden group">
               {/* Job Header */}
-              <button onClick={() => setSelectedJob(selectedJob === index ? null : index)} className="w-full p-6 text-left hover:bg-white/5 transition-colors duration-300">
+              <button 
+                onClick={() => setSelectedJob(selectedJob === index ? null : index)}
+                className="w-full p-6 text-left hover:bg-white/5 transition-colors duration-300"
+              >
                 <div className="flex justify-between items-center">
                   <div>
-                    <h3 className="text-2xl font-semibold text-white tracking-wide mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-500 group-hover:bg-clip-text transition-all duration-300">
+                    <h3 className="text-2xl font-semibold text-white tracking-wide mb-2 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                       {job.title}
                     </h3>
                     <div className="flex flex-wrap gap-4 text-white/70">
@@ -78,15 +118,20 @@ const CareersSection = () => {
                       <span>{job.type}</span>
                     </div>
                   </div>
-                  <div className={`w-8 h-8 border-2 border-white rounded-lg flex items-center justify-center transform transition-all duration-300 hover:border-blue-400 hover:scale-110 ${selectedJob === index ? 'rotate-45 bg-gradient-to-r from-blue-500 to-purple-600' : ''}`}>
-                    <div className={`w-4 h-0.5 bg-white absolute transition-opacity duration-300 ${selectedJob === index ? 'opacity-0' : 'opacity-100'}`}></div>
+                  <div className={`w-8 h-8 border-2 border-white rounded-lg flex items-center justify-center transform transition-all duration-300 hover:border-blue-400 hover:scale-110 ${
+                    selectedJob === index ? 'rotate-45 bg-gradient-to-r from-blue-500 to-purple-600' : ''
+                  }`}>
+                    <div className={`w-4 h-0.5 bg-white absolute transition-opacity duration-300 ${
+                      selectedJob === index ? 'opacity-0' : 'opacity-100'
+                    }`}></div>
                     <div className="w-0.5 h-4 bg-white absolute"></div>
                   </div>
                 </div>
               </button>
 
               {/* Job Details */}
-              {selectedJob === index && <div className="px-6 pb-6 space-y-6 animate-fade-in border-t border-white/10">
+              {selectedJob === index && (
+                <div className="px-6 pb-6 space-y-6 animate-fade-in border-t border-white/10">
                   <p className="text-white/80 text-lg leading-relaxed">
                     {job.description}
                   </p>
@@ -96,18 +141,22 @@ const CareersSection = () => {
                       REQUIREMENTS
                     </h4>
                     <ul className="space-y-2">
-                      {job.requirements.map((req, reqIndex) => <li key={reqIndex} className="flex items-start space-x-3">
+                      {job.requirements.map((req, reqIndex) => (
+                        <li key={reqIndex} className="flex items-start space-x-3">
                           <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mt-2 flex-shrink-0"></div>
                           <span className="text-white/80">{req}</span>
-                        </li>)}
+                        </li>
+                      ))}
                     </ul>
                   </div>
 
                   <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 font-semibold tracking-wider hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 rounded-lg">
                     APPLY NOW
                   </button>
-                </div>}
-            </div>)}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Floating Elements */}
@@ -115,9 +164,9 @@ const CareersSection = () => {
           <div className="text-white font-semibold text-sm">Remote Work</div>
           <div className="text-white/60 text-xs">Global Team</div>
         </div>
-        
-        
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default CareersSection;
