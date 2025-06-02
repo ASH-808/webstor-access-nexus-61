@@ -52,6 +52,12 @@ const Navigation = () => {
             >
               CAREERS
             </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="text-white/80 hover:text-white transition-colors duration-300 tracking-wide"
+            >
+              CONTACT
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -84,6 +90,12 @@ const Navigation = () => {
                 className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors"
               >
                 CAREERS
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors"
+              >
+                CONTACT
               </button>
             </div>
           </div>
