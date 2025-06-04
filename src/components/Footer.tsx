@@ -37,9 +37,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-bold tracking-wider mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                WEBSTORLABS
-              </h3>
+              <img 
+                src="/lovable-uploads/fd15c227-fc28-4973-8a5f-837497631525.png" 
+                alt="WebstorLabs Logo" 
+                className="h-12 w-auto object-contain mb-4"
+              />
               <p className="text-white/70 leading-relaxed">
                 Revolutionizing secure access through cutting-edge NFC technology and intelligent software solutions.
               </p>

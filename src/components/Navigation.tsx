@@ -28,13 +28,12 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">W</span>
-            </div>
-            <div className="font-bold text-xl tracking-wider text-white">
-              WEBSTORLABS
-            </div>
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/fd15c227-fc28-4973-8a5f-837497631525.png" 
+              alt="WebstorLabs Logo" 
+              className="h-12 w-auto object-contain"
+            />
           </div>
           
           {/* Desktop Navigation */}
