@@ -126,12 +126,14 @@ const HeroSection = () => {
               <div className="absolute -top-8 -left-8 w-20 h-20 xl:w-24 xl:h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl rotate-12 animate-pulse"></div>
               <div className="absolute -bottom-8 -right-8 w-24 h-24 xl:w-32 xl:h-32 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl rotate-45 animate-pulse delay-1000"></div>
               
-              {/* Central Icon/Logo */}
+              {/* Central Logo */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-24 h-24 xl:w-32 xl:h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/20 flex items-center justify-center">
-                  <div className="w-12 h-12 xl:w-16 xl:h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-xl xl:text-2xl">W</span>
-                  </div>
+                <div className="w-24 h-24 xl:w-32 xl:h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/20 flex items-center justify-center p-4">
+                  <img 
+                    src="/lovable-uploads/be47f84b-4d92-453f-8868-8ef4d7d4e9ff.png" 
+                    alt="WebstorLabs Logo" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </div>
 
