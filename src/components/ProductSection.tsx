@@ -11,14 +11,14 @@ const ProductSection = () => {
   }, []);
 
   const features = [
-    "One-tap secure access with NFC",
-    "Real-time monitoring and analytics", 
-    "Admin + User dashboards",
-    "Custom role-based permissions"
+    "Custom Software Development & Web Applications",
+    "Hardware Design & Embedded Systems", 
+    "Mobile Apps & Cross-Platform Solutions",
+    "Cloud Infrastructure & DevOps Solutions"
   ];
 
   return (
-    <section id="products" className="relative min-h-screen bg-black py-20 overflow-hidden">
+    <section id="services" className="relative min-h-screen bg-black py-20 overflow-hidden">
       {/* Parallax Background Elements */}
       <div 
         className="absolute inset-0 opacity-10"
@@ -37,24 +37,26 @@ const ProductSection = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-6">
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider leading-tight">
-                SEAMLESS.
+                SOFTWARE.
                 <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  SECURE.
+                  HARDWARE.
                 </span>
-                <span className="block text-white/70">SCALABLE.</span>
+                <span className="block text-white/70">EVERYTHING.</span>
               </h2>
               
               <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               
               <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">
-                WebstorLabs provides cutting-edge NFC-based access control systems integrated with powerful cloud software, tailored for enterprises, institutions, and modern workplaces.
+                WebstorLabs delivers comprehensive technology solutions from concept to deployment. 
+                Whether you need cutting-edge software, custom hardware, or complete digital transformation, 
+                we're your all-in-one technology partner.
               </p>
             </div>
 
             {/* Features List */}
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold text-white tracking-wide">
-                KEY HIGHLIGHTS
+                OUR SERVICES
               </h3>
               
               <div className="space-y-4">
@@ -80,7 +82,7 @@ const ProductSection = () => {
                 <div className="w-24 h-24 border-4 border-gradient-to-r from-blue-400 to-purple-500 rounded-full mx-auto flex items-center justify-center bg-gradient-to-br from-blue-500/20 to-purple-600/20">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full animate-pulse"></div>
                 </div>
-                <p className="text-white font-light tracking-wider">NFC ACCESS CONTROL</p>
+                <p className="text-white font-light tracking-wider">FULL-STACK SOLUTIONS</p>
               </div>
             </div>
             
@@ -90,13 +92,13 @@ const ProductSection = () => {
             
             {/* Floating Cards */}
             <div className="absolute -top-16 -right-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 animate-float">
-              <div className="text-white font-semibold text-sm">Enterprise Ready</div>
-              <div className="text-white/60 text-xs">Scalable Solutions</div>
+              <div className="text-white font-semibold text-sm">Enterprise Solutions</div>
+              <div className="text-white/60 text-xs">Scalable & Secure</div>
             </div>
             
             <div className="absolute -bottom-16 -left-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 animate-float delay-500">
-              <div className="text-white font-semibold text-sm">Real-time</div>
-              <div className="text-white/60 text-xs">Analytics</div>
+              <div className="text-white font-semibold text-sm">Scalable</div>
+              <div className="text-white/60 text-xs">Architecture</div>
             </div>
           </div>
         </div>

@@ -12,10 +12,10 @@ const DashboardSection = () => {
   }, []);
 
   const dashboardStats = [
-    { icon: Users, label: 'Active Users', value: '2,847', change: '+12%' },
-    { icon: Shield, label: 'Security Score', value: '98.5%', change: '+2.1%' },
-    { icon: BarChart3, label: 'Access Points', value: '156', change: '+8' },
-    { icon: Activity, label: 'Uptime', value: '99.9%', change: '0%' }
+    { icon: Users, label: 'Active Projects', value: '47', change: '+12%' },
+    { icon: Shield, label: 'Client Satisfaction', value: '98.5%', change: '+2.1%' },
+    { icon: BarChart3, label: 'Technologies Used', value: '50+', change: '+8' },
+    { icon: Activity, label: 'Team Members', value: '25+', change: '+5' }
   ];
 
   return (
@@ -40,18 +40,19 @@ const DashboardSection = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-wider leading-tight">
-                INTELLIGENT
+                COMPREHENSIVE
                 <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  DASHBOARD
+                  PROJECT
                 </span>
-                <span className="block text-white/70">CONTROL.</span>
+                <span className="block text-white/70">MANAGEMENT.</span>
               </h2>
               
               <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               
               <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed">
-                Experience real-time monitoring and comprehensive analytics through our 
-                intuitive dashboard interface. Complete visibility and control at your fingertips.
+                Track every aspect of your software and hardware projects with our advanced 
+                management platform. From conception to deployment, we ensure transparent 
+                communication and seamless delivery across all technology domains.
               </p>
             </div>
 
@@ -88,7 +89,7 @@ const DashboardSection = () => {
             >
               {/* Dashboard Header */}
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-white font-semibold text-lg">Access Control Dashboard</h3>
+                <h3 className="text-white font-semibold text-lg">Project Management Dashboard</h3>
                 <div className="flex space-x-2">
                   <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
@@ -106,16 +107,16 @@ const DashboardSection = () => {
                 {/* Stats Row */}
                 <div className="grid grid-cols-3 gap-3">
                   <div className="bg-white/5 rounded-lg p-3 border border-white/10">
-                    <div className="text-blue-400 text-sm">Active</div>
-                    <div className="text-white font-bold">142</div>
+                    <div className="text-blue-400 text-sm">Software</div>
+                    <div className="text-white font-bold">28</div>
                   </div>
                   <div className="bg-white/5 rounded-lg p-3 border border-white/10">
-                    <div className="text-green-400 text-sm">Online</div>
-                    <div className="text-white font-bold">98%</div>
+                    <div className="text-green-400 text-sm">Hardware</div>
+                    <div className="text-white font-bold">12</div>
                   </div>
                   <div className="bg-white/5 rounded-lg p-3 border border-white/10">
-                    <div className="text-purple-400 text-sm">Alerts</div>
-                    <div className="text-white font-bold">3</div>
+                    <div className="text-purple-400 text-sm">Design</div>
+                    <div className="text-white font-bold">7</div>
                   </div>
                 </div>
 
@@ -123,15 +124,15 @@ const DashboardSection = () => {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-3 text-sm">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-white/80">Access granted - Office A</span>
+                    <span className="text-white/80">Mobile app deployed</span>
                   </div>
                   <div className="flex items-center space-x-3 text-sm">
                     <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                    <span className="text-white/80">New user registered</span>
+                    <span className="text-white/80">Hardware prototype ready</span>
                   </div>
                   <div className="flex items-center space-x-3 text-sm">
                     <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
-                    <span className="text-white/80">System maintenance</span>
+                    <span className="text-white/80">Client review scheduled</span>
                   </div>
                 </div>
               </div>
@@ -139,13 +140,13 @@ const DashboardSection = () => {
 
             {/* Floating Cards */}
             <div className="absolute -top-16 -right-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 animate-float">
-              <div className="text-white font-semibold text-sm">Real-time</div>
-              <div className="text-white/60 text-xs">Monitoring</div>
+              <div className="text-white font-semibold text-sm">Multi-Platform</div>
+              <div className="text-white/60 text-xs">Development</div>
             </div>
             
             <div className="absolute -bottom-16 -left-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 animate-float delay-500">
-              <div className="text-white font-semibold text-sm">Analytics</div>
-              <div className="text-white/60 text-xs">Insights</div>
+              <div className="text-white font-semibold text-sm">Agile</div>
+              <div className="text-white/60 text-xs">Methodology</div>
             </div>
           </div>
         </div>

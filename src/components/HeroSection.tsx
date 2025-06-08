@@ -1,12 +1,16 @@
+
 import { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -15,32 +19,35 @@ const HeroSection = () => {
       });
     }
   };
+
   const performanceMetrics = [{
-    value: '99.9%',
-    label: 'System Uptime'
+    value: '500+',
+    label: 'Projects Delivered'
   }, {
-    value: '500ms',
-    label: 'Access Speed'
-  }, {
-    value: '256-bit',
-    label: 'Encryption'
+    value: '50+',
+    label: 'Technologies'
   }, {
     value: '24/7',
-    label: 'Monitoring'
+    label: 'Support'
+  }, {
+    value: 'Global',
+    label: 'Reach'
   }];
+
   const teamAvatars = [{
     name: 'Alex Chen',
-    role: 'Lead Engineer'
+    role: 'Full-Stack Developer'
   }, {
     name: 'Sarah Kim',
-    role: 'Security Expert'
+    role: 'UX/UI Designer'
   }, {
     name: 'Mike Rodriguez',
-    role: 'Hardware Designer'
+    role: 'Hardware Engineer'
   }, {
     name: 'Emma Watson',
-    role: 'Product Manager'
+    role: 'Project Manager'
   }];
+
   return <section id="hero" className="relative min-h-screen bg-black overflow-hidden">
       {/* Parallax Background Elements */}
       <div className="absolute inset-0 opacity-5" style={{
@@ -59,15 +66,15 @@ const HeroSection = () => {
             {/* Main Title */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-                Secure Access
+                Innovation
                 <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Redefined
+                  Without Limits
                 </span>
               </h1>
               
               <p className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed">
-                Revolutionary NFC technology meets intelligent software control. 
-                Building the future of secure infrastructure, one innovation at a time.
+                From cutting-edge software development to advanced hardware design - we're your complete 
+                technology partner for every digital challenge.
               </p>
             </div>
 
@@ -81,8 +88,8 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => scrollToSection('products')} className="group flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg transition-all duration-300 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105">
-                Explore Solutions
+              <button onClick={() => scrollToSection('services')} className="group flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg transition-all duration-300 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105">
+                Explore Services
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
               
@@ -121,7 +128,7 @@ const HeroSection = () => {
               {/* Central Logo */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-24 h-24 xl:w-32 xl:h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/20 flex items-center justify-center p-4">
-                  <img alt="WebstorLabs Logo" className="w-full h-full object-contain" src="/lovable-uploads/a0b3b8a3-8b4e-470c-b8d3-f6ee9bfcc296.png" />
+                  <img alt="WebstorLabs Logo" className="w-full h-full object-contain" src="/lovable-uploads/be47f84b-4d92-453f-8868-8ef4d7d4e9ff.png" />
                 </div>
               </div>
 
@@ -134,13 +141,13 @@ const HeroSection = () => {
 
             {/* Floating Cards */}
             <div className="absolute -top-16 -right-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 animate-float">
-              <div className="text-white font-semibold text-sm">NFC Enabled</div>
-              <div className="text-white/60 text-xs">Instant Access</div>
+              <div className="text-white font-semibold text-sm">Full-Stack Solutions</div>
+              <div className="text-white/60 text-xs">End-to-End Development</div>
             </div>
             
             <div className="absolute -bottom-16 -left-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 animate-float delay-1000">
-              <div className="text-white font-semibold text-sm">Secure</div>
-              <div className="text-white/60 text-xs">256-bit Encryption</div>
+              <div className="text-white font-semibold text-sm">Custom Development</div>
+              <div className="text-white/60 text-xs">Tailored Solutions</div>
             </div>
           </div>
         </div>
@@ -154,4 +161,5 @@ const HeroSection = () => {
       </div>
     </section>;
 };
+
 export default HeroSection;

@@ -43,7 +43,7 @@ const Footer = () => {
                 className="h-12 w-auto object-contain mb-4"
               />
               <p className="text-white/70 leading-relaxed">
-                Revolutionizing secure access through cutting-edge NFC technology and intelligent software solutions.
+                Your complete technology partner - delivering innovative software, hardware, and digital solutions across all domains.
               </p>
             </div>
             
@@ -77,10 +77,10 @@ const Footer = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('products')}
+                  onClick={() => scrollToSection('services')}
                   className="text-white/70 hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300"
                 >
-                  Products
+                  Services
                 </button>
               </li>
               <li>
@@ -106,12 +106,12 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6 tracking-wide">SERVICES</h4>
             <ul className="space-y-3 text-white/70">
-              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">NFC Access Control</li>
-              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">Cloud Software Solutions</li>
-              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">Custom Embedded Systems</li>
-              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">Enterprise Integration</li>
-              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">24/7 Technical Support</li>
-              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">Security Consulting</li>
+              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">Web & Mobile Development</li>
+              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">Custom Hardware Solutions</li>
+              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">Cloud & Infrastructure</li>
+              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">UI/UX Design Services</li>
+              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">IoT & Embedded Systems</li>
+              <li className="hover:text-white hover:bg-gradient-to-r hover:from-blue-400 hover:to-purple-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">Consulting & Strategy</li>
             </ul>
           </div>
 
@@ -120,7 +120,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-6 tracking-wide">CONNECT WITH US</h4>
             <div className="space-y-4">
               <p className="text-white/70 text-sm">
-                Follow us for the latest updates and innovations in access control technology.
+                Follow us for the latest updates and innovations in technology development.
               </p>
               
               <div className="flex space-x-4">
@@ -150,7 +150,7 @@ const Footer = () => {
               <div className="pt-4">
                 <h5 className="font-semibold mb-2">Newsletter</h5>
                 <p className="text-white/60 text-sm mb-3">
-                  Get updates on new products and industry insights.
+                  Get updates on new technologies and industry insights.
                 </p>
                 <div className="flex">
                   <input

@@ -51,10 +51,10 @@ const Navigation = () => {
               DASHBOARD
             </button>
             <button 
-              onClick={() => scrollToSection('products')}
+              onClick={() => scrollToSection('services')}
               className="text-white/80 hover:text-white transition-colors duration-300 tracking-wide"
             >
-              PRODUCTS
+              SERVICES
             </button>
             <button 
               onClick={() => scrollToSection('careers')}
@@ -97,10 +97,10 @@ const Navigation = () => {
                 DASHBOARD
               </button>
               <button 
-                onClick={() => scrollToSection('products')}
+                onClick={() => scrollToSection('services')}
                 className="block w-full text-left px-3 py-2 text-white/80 hover:text-white transition-colors"
               >
-                PRODUCTS
+                SERVICES
               </button>
               <button 
                 onClick={() => scrollToSection('careers')}

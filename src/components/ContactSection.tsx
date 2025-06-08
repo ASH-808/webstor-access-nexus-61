@@ -59,7 +59,7 @@ const ContactSection = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Ready to revolutionize your access control? Let's discuss your security needs and build something extraordinary together.
+            Ready to transform your ideas into reality? Let's discuss your software, hardware, or design needs and build something extraordinary together.
           </p>
         </div>
 
@@ -113,19 +113,19 @@ const ContactSection = () => {
               <ul className="space-y-3 text-white/80">
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
-                  <span>24/7 Technical Support</span>
+                  <span>Full-Stack Development Expertise</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
-                  <span>Custom Solutions</span>
+                  <span>End-to-End Project Delivery</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
-                  <span>Enterprise-Grade Security</span>
+                  <span>Cross-Platform Solutions</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
-                  <span>Rapid Implementation</span>
+                  <span>Rapid Prototyping & MVP Development</span>
                 </li>
               </ul>
             </div>

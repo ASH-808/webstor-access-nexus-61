@@ -13,55 +13,55 @@ const CareersSection = () => {
 
   const jobs = [
     {
-      title: "Embedded Developer",
+      title: "Full-Stack Developer",
       location: "Remote / On-site",
       type: "Full-time",
-      description: "Design and develop embedded systems for NFC access control hardware. Work with microcontrollers, real-time operating systems, and low-level programming.",
+      description: "Build end-to-end web applications using modern technologies. Work with React, Node.js, Python, and cloud platforms to create scalable solutions for diverse clients.",
       requirements: [
-        "3+ years experience in embedded C/C++ development",
-        "Experience with ARM microcontrollers and RTOS",
-        "Knowledge of communication protocols (SPI, I2C, UART)",
-        "Familiarity with NFC/RFID technologies preferred",
-        "Strong debugging and testing skills"
+        "3+ years experience with React, Node.js, or Python",
+        "Proficiency in database design (SQL/NoSQL)",
+        "Experience with cloud platforms (AWS, Azure, GCP)",
+        "Knowledge of containerization (Docker, Kubernetes)",
+        "Strong problem-solving and communication skills"
       ]
     },
     {
-      title: "System Designer",
+      title: "Hardware Design Engineer",
       location: "Remote / On-site",
       type: "Full-time",
-      description: "Architect scalable cloud infrastructure and design system integration for access control solutions. Lead technical decision-making and system optimization.",
+      description: "Design and develop custom hardware solutions including PCB design, embedded systems, and IoT devices. Collaborate with software teams for seamless integration.",
       requirements: [
-        "5+ years in system architecture and cloud design",
-        "Experience with microservices and distributed systems",
-        "Proficiency in AWS/Azure cloud platforms",
-        "Knowledge of security protocols and encryption",
-        "Experience with real-time data processing"
+        "5+ years in hardware design and PCB layout",
+        "Experience with CAD tools (Altium, KiCad)",
+        "Knowledge of embedded systems and microcontrollers",
+        "Familiarity with manufacturing processes",
+        "Strong analytical and debugging skills"
       ]
     },
     {
-      title: "Project Manager",
+      title: "UI/UX Designer",
       location: "Hybrid",
       type: "Full-time",
-      description: "Lead cross-functional teams to deliver complex access control projects. Coordinate between hardware, software, and client implementation teams.",
+      description: "Create intuitive and beautiful user experiences across web and mobile platforms. Conduct user research, design systems, and collaborate closely with development teams.",
       requirements: [
-        "PMP or equivalent project management certification",
-        "3+ years managing technical projects",
-        "Experience in IoT or hardware product development",
-        "Strong stakeholder management skills",
-        "Agile/Scrum methodology expertise"
+        "Portfolio showcasing web and mobile design work",
+        "Proficiency in Figma, Adobe Creative Suite",
+        "Experience with design systems and prototyping",
+        "Knowledge of user research methodologies",
+        "Understanding of front-end development principles"
       ]
     },
     {
-      title: "Cybersecurity & QA Specialist",
+      title: "DevOps Engineer",
       location: "Remote / On-site",
       type: "Full-time",
-      description: "Ensure the security and quality of access control systems. Conduct penetration testing, security audits, and comprehensive QA processes.",
+      description: "Build and maintain scalable infrastructure, implement CI/CD pipelines, and ensure secure deployment practices across our diverse technology stack.",
       requirements: [
-        "Cybersecurity certification (CISSP, CEH, or equivalent)",
-        "Experience with penetration testing tools",
-        "Knowledge of IoT security best practices",
-        "Automated testing framework experience",
-        "Understanding of compliance standards (ISO 27001, etc.)"
+        "Experience with AWS, Docker, and Kubernetes",
+        "Proficiency in Infrastructure as Code (Terraform, CloudFormation)",
+        "Knowledge of CI/CD tools (Jenkins, GitLab CI, GitHub Actions)",
+        "Understanding of security best practices",
+        "Scripting skills in Python, Bash, or PowerShell"
       ]
     }
   ];
@@ -86,15 +86,15 @@ const CareersSection = () => {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider mb-6">
             JOIN THE MINDS
             <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              BEHIND SECURE
+              BEHIND INNOVATION
             </span>
-            <span className="block text-white/70">ACCESS.</span>
+            <span className="block text-white/70">ACROSS ALL DOMAINS.</span>
           </h2>
           
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
           
           <p className="text-xl md:text-2xl text-white/80 font-light max-w-3xl mx-auto">
-            We're building the infrastructure of the future — and we want you on board.
+            We're building the future of technology across software, hardware, and everything in between — and we want you on board.
           </p>
         </div>
 
