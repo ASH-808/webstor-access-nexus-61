@@ -7,18 +7,27 @@ import CareersSection from '../components/CareersSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import SplashCursor from '../components/SplashCursor';
+import ClickSpark from '../components/ClickSpark';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-black">
       <SplashCursor />
-      <Navigation />
-      <HeroSection />
-      <DashboardSection />
-      <ProductSection />
-      <CareersSection />
-      <ContactSection />
-      <Footer />
+      <ClickSpark 
+        sparkColor="#3b82f6" 
+        sparkSize={12} 
+        sparkRadius={20} 
+        sparkCount={6}
+        duration={600}
+      >
+        <Navigation />
+        <HeroSection />
+        <DashboardSection />
+        <ProductSection />
+        <CareersSection />
+        <ContactSection />
+        <Footer />
+      </ClickSpark>
     </div>
   );
 };
