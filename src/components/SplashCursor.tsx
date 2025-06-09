@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 
 interface SplashCursorProps {
@@ -72,17 +73,6 @@ function SplashCursor({
 
     let pointers = [new (pointerPrototype as any)()];
 
-    const { gl, ext } = getWebGLContext(canvas);
-    if (!gl) {
-      console.warn('WebGL not supported, SplashCursor disabled');
-      return;
-    }
-    
-    if (!ext.supportLinearFiltering) {
-      config.DYE_RESOLUTION = 256;
-      config.SHADING = false;
-    }
-
     function getWebGLContext(canvas: HTMLCanvasElement) {
       const params = {
         alpha: true,
@@ -92,14 +82,25 @@ function SplashCursor({
         preserveDrawingBuffer: false,
       };
       
-      let gl: WebGLRenderingContext | WebGL2RenderingContext | null = canvas.getContext('webgl2', params);
-      const isWebGL2 = !!gl;
-      if (!isWebGL2) {
-        gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
+      let gl: WebGLRenderingContext | WebGL2RenderingContext | null = null;
+      let isWebGL2 = false;
+
+      // Try WebGL2 first
+      const gl2Context = canvas.getContext('webgl2', params);
+      if (gl2Context && gl2Context instanceof WebGL2RenderingContext) {
+        gl = gl2Context;
+        isWebGL2 = true;
+      } else {
+        // Fallback to WebGL1
+        const gl1Context = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
+        if (gl1Context && (gl1Context instanceof WebGLRenderingContext)) {
+          gl = gl1Context;
+          isWebGL2 = false;
+        }
       }
       
       if (!gl) {
-        return { gl: null, ext: {} };
+        return { gl: null, ext: {}, isWebGL2: false };
       }
 
       let halfFloat: any;
@@ -116,6 +117,7 @@ function SplashCursor({
       const halfFloatTexType = isWebGL2
         ? (gl as WebGL2RenderingContext).HALF_FLOAT
         : halfFloat && halfFloat.HALF_FLOAT_OES;
+      
       let formatRGBA: any;
       let formatRG: any;
       let formatR: any;
@@ -141,6 +143,7 @@ function SplashCursor({
           halfFloatTexType,
           supportLinearFiltering,
         },
+        isWebGL2,
       };
     }
 
@@ -194,12 +197,23 @@ function SplashCursor({
       return status === gl.FRAMEBUFFER_COMPLETE;
     }
 
+    const { gl, ext, isWebGL2 } = getWebGLContext(canvas);
+    if (!gl) {
+      console.warn('WebGL not supported, SplashCursor disabled');
+      return;
+    }
+    
+    if (!ext.supportLinearFiltering) {
+      config.DYE_RESOLUTION = 256;
+      config.SHADING = false;
+    }
+
     class Material {
       vertexShader: WebGLShader;
       fragmentShaderSource: string;
-      programs: { [key: number]: WebGLProgram } = [];
+      programs: { [key: number]: WebGLProgram } = {};
       activeProgram: WebGLProgram | null = null;
-      uniforms: { [key: string]: WebGLUniformLocation | null } = [];
+      uniforms: { [key: string]: WebGLUniformLocation | null } = {};
 
       constructor(vertexShader: WebGLShader, fragmentShaderSource: string) {
         this.vertexShader = vertexShader;
@@ -254,7 +268,7 @@ function SplashCursor({
     }
 
     function getUniforms(program: WebGLProgram): { [key: string]: WebGLUniformLocation | null } {
-      let uniforms: { [key: string]: WebGLUniformLocation | null } = [];
+      let uniforms: { [key: string]: WebGLUniformLocation | null } = {};
       let uniformCount = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
       for (let i = 0; i < uniformCount; i++) {
         let uniformName = gl.getActiveUniform(program, i)!.name;
@@ -282,17 +296,18 @@ function SplashCursor({
       return keywordsString + source;
     }
 
+    function hashCode(s: string): number {
+      if (s.length === 0) return 0;
+      let hash = 0;
+      for (let i = 0; i < s.length; i++) {
+        hash = (hash << 5) - hash + s.charCodeAt(i);
+        hash |= 0;
+      }
+      return hash;
+    }
+
     // Simplified shader creation with basic error handling
     let baseVertexShader: WebGLShader;
-    let copyShader: WebGLShader;
-    let clearShader: WebGLShader;
-    let splatShader: WebGLShader;
-    let advectionShader: WebGLShader;
-    let divergenceShader: WebGLShader;
-    let curlShader: WebGLShader;
-    let vorticityShader: WebGLShader;
-    let pressureShader: WebGLShader;
-    let gradientSubtractShader: WebGLShader;
 
     try {
       baseVertexShader = compileShader(
@@ -318,114 +333,11 @@ function SplashCursor({
         `
       );
 
-      copyShader = compileShader(
-        gl.FRAGMENT_SHADER,
-        `
-          precision mediump float;
-          precision mediump sampler2D;
-          varying highp vec2 vUv;
-          uniform sampler2D uTexture;
-
-          void main () {
-              gl_FragColor = texture2D(uTexture, vUv);
-          }
-        `
-      );
-
-      clearShader = compileShader(
-        gl.FRAGMENT_SHADER,
-        `
-          precision mediump float;
-          precision mediump sampler2D;
-          varying highp vec2 vUv;
-          uniform sampler2D uTexture;
-          uniform float value;
-
-          void main () {
-              gl_FragColor = value * texture2D(uTexture, vUv);
-          }
-       `
-      );
-
-      const displayShaderSource = `
-        precision highp float;
-        precision highp sampler2D;
-        varying vec2 vUv;
-        varying vec2 vL;
-        varying vec2 vR;
-        varying vec2 vT;
-        varying vec2 vB;
-        uniform sampler2D uTexture;
-        uniform sampler2D uDithering;
-        uniform vec2 ditherScale;
-        uniform vec2 texelSize;
-
-        vec3 linearToGamma (vec3 color) {
-            color = max(color, vec3(0));
-            return max(1.055 * pow(color, vec3(0.416666667)) - 0.055, vec3(0));
-        }
-
-        void main () {
-            vec3 c = texture2D(uTexture, vUv).rgb;
-            #ifdef SHADING
-                vec3 lc = texture2D(uTexture, vL).rgb;
-                vec3 rc = texture2D(uTexture, vR).rgb;
-                vec3 tc = texture2D(uTexture, vT).rgb;
-                vec3 bc = texture2D(uTexture, vB).rgb;
-
-                float dx = length(rc) - length(lc);
-                float dy = length(tc) - length(bc);
-
-                vec3 n = normalize(vec3(dx, dy, length(texelSize)));
-                vec3 l = vec3(0.0, 0.0, 1.0);
-
-                float diffuse = clamp(dot(n, l) + 0.7, 0.7, 1.0);
-                c *= diffuse;
-            #endif
-
-            float a = max(c.r, max(c.g, c.b));
-            gl_FragColor = vec4(c, a);
-        }
-      `;
-
-      splatShader = compileShader(
-        gl.FRAGMENT_SHADER,
-        `
-          precision highp float;
-          precision highp sampler2D;
-          varying vec2 vUv;
-          uniform sampler2D uTarget;
-          uniform float aspectRatio;
-          uniform vec3 color;
-          uniform vec2 point;
-          uniform float radius;
-
-          void main () {
-              vec2 p = vUv - point.xy;
-              p.x *= aspectRatio;
-              vec3 splat = exp(-dot(p, p) / radius) * color;
-              vec3 base = texture2D(uTarget, vUv).xyz;
-              gl_FragColor = vec4(base + splat, 1.0);
-          }
-        `
-      );
-
-      // Rest of the implementation would continue, but for now let's create a minimal working version
       console.log('SplashCursor WebGL context initialized successfully');
 
     } catch (error) {
       console.warn('Failed to initialize SplashCursor shaders:', error);
       return;
-    }
-
-    function hashCode(s: string): number {
-      if (s.length === 0) return 0;
-      let hash = 0;
-      for (let i = 0; i < s.length; i++) {
-        hash = (hash << 5) - hash + s.charCodeAt(i);
-        hash |= 0;
-      }
-      return hash;
     }
 
     // Simplified event handlers for now
